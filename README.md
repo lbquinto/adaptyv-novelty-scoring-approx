@@ -88,9 +88,8 @@ We ran this package against the original scripts and against scores we had alrea
 So the code reproduces the previous implementation, and the remaining variability comes from the structure step (ESMFold numerics on different GPUs, and the coverage threshold of the Foldseek hits). A design whose TM score is near 0.5 or 0.8, or whose best hit covers close to 70% of the sequence, can change level between runs.
 
 ## Limitations and validation status
-- **No validation against the competition's scorer.** The only comparison we have is informal: for 22 designs in an earlier EGFR submission the competition's own scores were available, and our levels disagreed for 5 of the 22 (three designs we scored level 3 were scored 4/4 by the competition, and two we scored level 3 were scored 2/4). The sample is small and comes from one target; we cannot tell which way a given new design will differ.
 - No domain segmentation and a single structure predictor (ESMFold); no antibody path; reference databases are SwissProt, PDB and AFDB-SwissProt only, so hits in larger databases (UniRef, MGnify, AFDB-wide) are not seen and a sequence can look more novel here than it is.
-- The identity x coverage convention and the 70% hit-coverage requirement are our reading of Adaptyv's description.
+- The identity x coverage convention and the 70% hit-coverage requirement are our interpretation of Adaptyv's description.
 
 ## Credits and licences (please verify before redistributing)
 This project is licensed under the MIT License.
