@@ -2,7 +2,15 @@
 
 **This is NOT the competition's novelty checker.** It is our own re-implementation of the scheme Adaptyv describes publicly (https://www.adaptyvbio.com/blog/novelty). Their own pipeline is not public, so several choices below are our assumptions, and we have **not** validated it against their scorer. Please treat the output as a screen, not as a prediction of the score you will get.
 
-Scope: **single-chain protein sequences only.** Antibody, nanobody, scFv and Fab scoring is deliberately not included, and we have not validated anything on antibodies.
+Scope: **single-chain protein sequences only.** Antibody, nanobody, scFv and Fab scoring is deliberately not included, as we have not validated any antibody sequences against the Adaptyv scorer.
+
+**Performance**
+I tested ~110 miniprotein sequences that this scorer ranked 3/4 or 4/4:
+| Our score | Adaptyv score |
+|---|---|
+| 3 | ~3% were 2s, ~15% were 4s, and ~82% were 3s |
+| 4 | 1/1 was a 4 |
+
 
 ## What it computes
 For each sequence:
@@ -84,4 +92,8 @@ So the code reproduces the previous implementation, and the remaining variabilit
 - The identity x coverage convention and the 70% hit-coverage requirement are our reading of Adaptyv's description.
 
 ## Credits and licences (please verify before redistributing)
-Reference data and tools have their own terms: UniProt (CC BY 4.0), PDB, AlphaFold Database (CC BY 4.0), MMseqs2 and Foldseek (GPL-3.0), ESMFold (`facebook/esmfold_v1`; check the model licence on Hugging Face). Please cite the Adaptyv novelty description, MMseqs2, Foldseek and ESMFold if you use this. **[Licence for these two scripts: to be chosen by the authors before publishing.]**
+This project is licensed under the MIT License.
+It does not include or redistribute MMseqs2, Foldseek, ESMFold or the reference databases, which are covered by their own
+licences (see "Credits and licences").
+
+Developed with the assistance of Claude Sonnet 5.5 (Anthropic).
