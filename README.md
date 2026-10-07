@@ -6,7 +6,7 @@ Scope: **single-chain protein sequences only.** Antibody, nanobody, scFv and Fab
 
 ## Performance
 
-I tested ~110 upload of miniprotein sequences that this scorer ranked 3/4 or 4/4:
+I tested ~110 upload of miniprotein sequences (against a single target) that this scorer ranked 3/4 or 4/4:
 | Our score | Adaptyv score |
 |---|---|
 | 3 | ~3% were 2s, ~15% were 4s, and ~82% were 3s |
