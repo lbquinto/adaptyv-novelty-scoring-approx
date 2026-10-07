@@ -6,12 +6,14 @@ Scope: **single-chain protein sequences only.** Antibody, nanobody, scFv and Fab
 
 ## Performance
 
-I tested ~110 upload of miniprotein sequences (against a single target) that this scorer ranked 3/4 or 4/4:
+We compared this scorer with Adaptyv's score on ~110 uploaded miniprotein sequences (all against a single target) that this scorer rated level 3 or 4:
+
 | Our score | Adaptyv score |
 |---|---|
 | 3 | ~3% were 2s, ~15% were 4s, and ~82% were 3s |
 | 4 | 1/1 was a 4 |
 
+Only sequences that this scorer rated 3 or 4 were tested, so this shows how often Adaptyv's score agreed when we rated a sequence as novel; it says nothing about sequences we rated 1 or 2. Only one sequence was rated 4, and all sequences were for a single target, so please treat these percentages as indicative only.
 
 ## What it computes
 For each sequence:
@@ -88,12 +90,15 @@ We ran this package against the original scripts and against scores we had alrea
 So the code reproduces the previous implementation, and the remaining variability comes from the structure step (ESMFold numerics on different GPUs, and the coverage threshold of the Foldseek hits). A design whose TM score is near 0.5 or 0.8, or whose best hit covers close to 70% of the sequence, can change level between runs.
 
 ## Limitations and validation status
+- **Agreement with Adaptyv's scorer is only partly characterised.** The only comparison we have is the one in the Performance section: about 110 miniprotein sequences for a single target, all rated level 3 or 4 here, of which roughly 18% of the level-3 sequences received a different score from Adaptyv's. We have not tested sequences we rated 1 or 2, other targets, or antibodies.
 - No domain segmentation and a single structure predictor (ESMFold); no antibody path; reference databases are SwissProt, PDB and AFDB-SwissProt only, so hits in larger databases (UniRef, MGnify, AFDB-wide) are not seen and a sequence can look more novel here than it is.
 - The identity x coverage convention and the 70% hit-coverage requirement are our interpretation of Adaptyv's description.
 
 ## Credits and licences (please verify before redistributing)
-This project is licensed under the MIT License.
-It does not include or redistribute MMseqs2, Foldseek, ESMFold or the reference databases, which are covered by their own
-licences (see "Credits and licences").
+This project is licensed under the MIT License (see [LICENSE](LICENSE)).
+
+It does not include or redistribute MMseqs2, Foldseek, ESMFold or the reference databases, which are covered by their own terms: UniProt (CC BY 4.0), PDB, AlphaFold Database (CC BY 4.0), MMseqs2 and Foldseek (GPL-3.0), and ESMFold (`facebook/esmfold_v1`; check the model licence on Hugging Face). Please check these terms before redistributing anything that includes them.
+
+If you use this, please cite the Adaptyv novelty description, MMseqs2, Foldseek and ESMFold.
 
 Developed with the assistance of Claude Sonnet 5.5 (Anthropic).
