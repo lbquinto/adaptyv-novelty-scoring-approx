@@ -83,12 +83,6 @@ python tests/check_reproduction.py my_public.csv tests/expected_public.csv
 | ubiquitin_scrambled | 3 | 2 |
 | idealized_helix_repeat | 4 | 4 |
 
-## How well this package reproduces our earlier results
-We ran this package against the original scripts and against scores we had already computed for 55 designs of our own (not distributed here), spanning all four levels (5 at level 1, 12 at level 2, 31 at level 3 and 7 at level 4), in a single GPU job on 2026-10-06 (RTX PRO 6000 Blackwell GPU, same database copies):
-- **Public test set (6 sequences), package vs the original script:** identical on every column (zero difference), including levels.
-- **55 designs vs existing scores** (computed earlier on other GPUs in separate runs): the three MMseqs2 sequence columns were identical for all 55. `level` matched for 54 of 55 and `level_strict` for 54 of 55. The single difference sat on a threshold: the structure score was 0.509 against 0.495 earlier (threshold 0.5), which moved the design from level 4 to 3. `struct_best_qtm` differed by less than 0.02 for 50 of 55 designs (median difference 0.0001, 54 of 55 within 0.05). One design had a large difference (0.41 against 0.00; level 4 in both runs), which we think is a hit sitting close to the 70% coverage requirement in one run and not in the other, but we did not investigate it. `mean_plddt` differed by at most 1.1.
-So the code reproduces the previous implementation, and the remaining variability comes from the structure step (ESMFold numerics on different GPUs, and the coverage threshold of the Foldseek hits). A design whose TM score is near 0.5 or 0.8, or whose best hit covers close to 70% of the sequence, can change level between runs.
-
 ## Limitations and validation status
 - **Agreement with Adaptyv's scorer is only partly characterised.** The only comparison we have is the one in the Performance section: about 110 miniprotein sequences for a single target, all rated level 3 or 4 here, of which roughly 18% of the level-3 sequences received a different score from Adaptyv's. We have not tested sequences we rated 1 or 2, other targets, or antibodies.
 - No domain segmentation and a single structure predictor (ESMFold); no antibody path; reference databases are SwissProt, PDB and AFDB-SwissProt only, so hits in larger databases (UniRef, MGnify, AFDB-wide) are not seen and a sequence can look more novel here than it is.
