@@ -1,0 +1,7 @@
+name,molecule_class,seq_ident,seq_ident_x_qcov,seq_ident_qcov50,seq_best_target,seq_best_qcov,struct_best_qtm,struct_best_target,struct_best_qcov,mean_plddt,level,level_strict
+EGF_known,protein,1.0,1.0,1.0,swissprot:P01133,1.0,0.8587,afdb_sp:AF-P55244-F1-model_v6,1.0,80.34783601760864,1,1
+GFP_known,protein,1.0,1.0,1.0,swissprot:P42212,1.0,0.6632,pdb:6wvi-assembly1_A,0.929,42.56641268730164,1,1
+GFP_scrambled,protein,0.0,0.0,0.0,,0.0,0.366,pdb:8oui-assembly1_C,0.958,27.47911810874939,4,4
+ubiquitin_known,protein,1.0,1.0,1.0,swissprot:Q865C5,1.0,0.9873,afdb_sp:AF-P68203-F1-model_v6,1.0,90.4806911945343,1,1
+ubiquitin_scrambled,protein,0.515,0.22351,0.395,swissprot:A2XFT5,0.434,0.5213,afdb_sp:AF-Q19787-F1-model_v6,0.934,46.40085697174072,3,2
+idealized_helix_repeat,protein,0.0,0.0,0.0,,0.0,0.0,,0.0,95.33281326293944,4,4

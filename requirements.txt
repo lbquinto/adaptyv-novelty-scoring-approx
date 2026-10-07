@@ -1,0 +1,11 @@
+# Python packages used by novelty_scorer.py and fold_esmfold.py (versions of the environment in which the scores were reproduced, 2026-10-06)
+# Python 3.12
+torch==2.9.1            # CUDA build recommended (we used the cu128 build); CPU works for a few sequences
+transformers==5.18.0    # provides EsmForProteinFolding (facebook/esmfold_v1)
+accelerate==1.15.0
+huggingface_hub==1.33.0
+pandas==2.3.3
+numpy==2.0.2
+# Command-line tools (not pip packages), must be on PATH:
+#   mmseqs   MMseqs2 release 17-b804f  (https://github.com/soedinglab/MMseqs2)
+#   foldseek Foldseek release 10-941cd33 (https://github.com/steineggerlab/foldseek)

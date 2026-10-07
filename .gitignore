@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*_work/
+*.meta.json
+# local outputs and databases
+db/
+hf_cache/
+scores*.csv
+my_public.csv
